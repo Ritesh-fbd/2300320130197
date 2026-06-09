@@ -1,22 +1,28 @@
-const getTopNotifications =
-require("./priority");
+const getNotifications = require("./notification");
+const getTopNotifications = require("./priority");
+const getToken = require("./auth");
+const Log = require("./logger");
 
-const notifications = [
-  {
-    type: "event",
-    time: "2026-06-01T11:00:00"
-  },
-  {
-    type: "placement",
-    time: "2026-06-01T09:00:00"
-  },
-  {
-    type: "result",
-    time: "2026-06-01T10:00:00"
-  }
-];
+async function run() {
+  console.log("Getting token...");
+  const token = await getToken();
+  console.log("Token received");
 
-const top =
-getTopNotifications(notifications);
+  await Log(
+    token,
+    "backend",
+    "info",
+    "service",
+    "Application started"
+  );
 
-console.log(top);
+  const notifications =
+    await getNotifications();
+
+  const topNotifications =
+    getTopNotifications(notifications);
+
+  console.log(topNotifications);
+}
+
+run();
