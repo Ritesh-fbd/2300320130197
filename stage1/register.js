@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require("../.gitignore/node_modules/axios/index.d.cts");
 
 async function register() {
   try {
