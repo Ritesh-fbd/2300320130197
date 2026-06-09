@@ -1,19 +1,19 @@
-const axios = require("../.gitignore/node_modules/axios/index.d.cts");
+require("dotenv").config();
+
+const axios = require("../node_modules/axios/index.d.cts");
 
 async function getToken() {
-
   const response = await axios.post(
     "http://4.224.186.213/evaluation-service/auth",
     {
-      email: "ritesh.23b0131057@abes.ac.in",
+      email: process.env.EMAIL,
       name: "Ritesh Singh",
       rollNo: "2300320130197",
-      accessCode: "cXuqht",
-      clientID: "fc1c34f5-d98a-4b8f-9ef1-69fbcc3575b4",
-      clientSecret: "shBBXMrfSSwDpwue"
+      accessCode: process.env.ACCESS_CODE,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET
     }
   );
-
   return response.data.access_token;
 }
 

@@ -15,7 +15,7 @@ async function run() {
     "service",
     "Application started"
   );
-
+console.log("Logger test completed")
   const notifications =
     await getNotifications();
 

@@ -1,4 +1,6 @@
-const axios = require("../.gitignore/node_modules/axios/index.d.cts");
+
+const axios = require("../node_modules/axios/index.d.cts");
+
 
 async function Log(
   token,
